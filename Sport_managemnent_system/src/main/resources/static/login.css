@@ -1,0 +1,99 @@
+.container {
+  margin-top: 5px;
+  height: 660px;
+  border-radius: 20px;
+}
+
+.form-design {
+  position: relative;
+}
+
+.background-image {
+  opacity: 0.2;
+  position: absolute;
+  height: 550px;
+  width: 1000px;
+  top: -80px;
+  left: 0;
+  bottom: 0;
+}
+
+.login-main {
+  /* background-attachment: fixed; */
+  background-color: #d7f56ae0;
+
+  height: 340px;
+  width: 400px;
+  border: 2px solid;
+  margin: 80px auto;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.619);
+  border-color: rgba(0, 0, 0, 0.185);
+}
+
+.form-image {
+  height: 100px;
+  width: 1200px;
+}
+
+.label-place {
+  margin-left: 30px;
+}
+
+.form-check {
+  display: inline-block;
+  margin: 15px 30px;
+}
+
+.label {
+  margin: 30px 20px;
+  font-weight: bold;
+  color: rgb(255, 3, 3);
+}
+
+#heading-type {
+  color: brown;
+  margin: 0px auto;
+}
+
+.form-control {
+  margin-left: 30px;
+}
+
+button {
+  color: brown;
+  font-weight: bold;
+  border-radius: 5px;
+  /* padding: px; */
+  padding: 10px;
+  margin: 0px 5px;
+  border: none;
+}
+
+button:hover {
+  background-color: rgba(190, 87, 87, 0.349);
+}
+
+.link-reg {
+  text-decoration: none;
+  color: grey;
+  margin-left: 20px;
+
+}
+
+.link-reg:hover {
+  text-decoration: underline;
+  padding: 0;
+  background-color: none;
+}
+
+form p {
+  margin-top: 20px;
+}
+.error-message {
+  color: red;
+  display: block;
+  padding: 3px 3px;
+  font-size: 12px;
+}

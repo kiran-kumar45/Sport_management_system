@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <link href="img/logo-2.png" rel="icon" type="image/x-icon">
+    <title>
+        welcome to bitm
+    </title>
+    <link href="style.css" rel="stylesheet">
+    <link href="index_controller.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+            crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-success ">
+  <div class="containers">
+    <header>
+
+        <img class="logo" src="img/bitm-logo-new.png" width="100px">
+
+        <h1>
+            <p>Ballari institute of technology and management ballari</p>
+            <p id="sport-heading">sports management system</p>
+        </h1>
+        <div class="clear"></div>
+    </header>
+    <nav>
+        <a class="home" href="#">HOME</a>
+        <a class="username" href="#">USER MANUAL</a>
+        <a href="achievements">PREVIOUS YEAR REPORT</a>
+        <a href="registration">REGISTRATION</a>
+        <a href="login">LOGIN</a>
+    </nav>
+    <h2 class="head">
+        welcome to bitm sports gallery
+
+    </h2>
+
+    <main>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/1.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/3.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/4.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/5.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/6.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/7.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/9.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/12.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/13.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/15.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/14.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/16.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/19.jpg" height=500 class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </main>
+      <form method="post">
+          <table class="table table-striped">
+              <thead>
+              <tr> <!-- Checkbox column -->
+                  <th>Notification</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="notification : ${index}">
+            <td>
+                <a href="login">
+                  <span id="notificationSubject" th:text="${notification.subject}"></span>
+                  <span id="notificationContent" th:text="${notification.content}"></span>
+                  <span id="notificationtime" th:text="${notification.createdAt}"></span>
+                </a>
+            </td>
+              </tr>
+              </tbody>
+          </table>
+      </form>
+  </div>
+</body>
+</html>

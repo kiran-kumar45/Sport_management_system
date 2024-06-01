@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <link href="img/logo-2.png" rel="icon" type="image/x-icon">
+    <title>Welcome to BITM</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="report.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+            crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-success">
+<div class="containers">
+    <header>
+        <img class="logo" src="img/bitm-logo-new.png" width="100px">
+        <h1>
+            <p>Ballari Institute of Technology and Management, Ballari</p>
+            <p id="sport-heading">Sports Management System</p>
+        </h1>
+        <div class="clear"></div>
+    </header>
+    <nav>
+        <a class="home" href="notification">Notification</a>
+        <a class="username" href="adminApplication">Application Controller</a>
+        <a href="applied">Applied Student</a>
+        <a href="#">Previous Year Detail</a>
+        <a href="index">Logout</a>
+    </nav>
+    <p class="admin">Welcome Admin..!</p>
+    <div class="containers">
+        <!-- New section for Previous Year Details with Thymeleaf -->
+            <section class="notifications">
+                <form class="division" method="post">
+                    <h2 class="heading_notification">Previous Year Report</h2>
+                    <table class="table">
+                        <thead>
+                        <tr> <!-- Checkbox column -->
+                            <th>Select</th>
+                            <th>Year</th>
+                            <th>Sports-Played</th>
+                            <th>Performance</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="value: ${values}">
+                            <td>
+                                <label>
+                                    <input type="checkbox" class="form-check-input" name="selected" th:value="${value.id}">
+                                </label>
+                            </td>
+                            <td th:text="${value.yearPlayed}"></td>
+                            <td th:text="${value.type}"></td>
+                            <td th:text="${value.performance}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button type="submit" name="delete" value="true" class="btn btn-danger">Delete</button>
+                </form>
+            </section>
+            <h2 class="heading_notification">Previous Year Details</h2>
+            <form th:object="${report}" method="post">
+                <div class="mb-3 ">
+                    <label for="year" class="form-label ">Select Year:</label>
+                    <select class="form-select" th:field="*{yearPlayed}" id="year">
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="sports" class="form-label">Select Type of Sports:</label>
+                    <select class="form-select" th:field="*{type}" id="sports">
+                        <option value="Cricket">Cricket</option>
+                        <option value="Football (Soccer)">Football (Soccer)</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Volleyball">Volleyball</option>
+                        <option value="Badminton">Badminton</option>
+                        <option value="Table Tennis">Table Tennis</option>
+                        <option value="Chess">Chess</option>
+                        <option value="Athletics (Track and Field)">Athletics (Track and Field)</option>
+                        <option value="Kabaddi">Kabaddi</option>
+                        <option value="Hockey">Hockey</option>
+                        <option value="Tennis">Tennis</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Rugby">Rugby</option>
+                        <option value="Carrom">Carrom</option>
+                        <option value="Boxing">Boxing</option>
+                        <option value="Wrestling">Wrestling</option>
+                        <option value="Weightlifting">Weightlifting</option>
+                        <option value="Karate">Karate</option>
+                        <option value="Taekwondo">Taekwondo</option>
+                        <option value="Yoga">Yoga</option>
+                        <option value="Archery">Archery</option>
+                        <option value="Cycling">Cycling</option>
+                        <option value="Shooting">Shooting</option>
+                        <option value="Fencing">Fencing</option>
+                    </select>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="performance" class="form-label">Select Performance:</label>
+                    <select class="form-select" th:field="*{performance}" id="performance">
+                        <option value="Winner's">Winner's</option>
+                        <option value="Runner-up">Runner-up</option>
+                        <option value="Participated">Participated</option>
+                    </select>
+                </div>
+                <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+            </form>
+    </div>
+</div>
+</body>
+
+</html>

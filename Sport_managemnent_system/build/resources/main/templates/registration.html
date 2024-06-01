@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/logo-2.png" rel="icon" type="image/x-icon">
+    <title>registration
+    </title>
+    <link href="style.css" rel="stylesheet">
+    <link href="registration.css" rel="stylesheet">
+    <script>
+        function clearErrorMessage(errorId) {document.getElementById(errorId).textContent = '';}
+    </script>
+
+</head>
+
+<body>
+<div class="container">
+    <header>
+
+        <img class="logo" src="img/bitm-logo-new.png" width="100px">
+
+        <h1>
+            <p> Ballari institute of technology and management ballari</p>
+            <p id="sport-heading">sports management system</p>
+        </h1>
+        <div class="clear"></div>
+    </header>
+    <nav>
+        <a class="home" href="index">HOME</a>
+        <a class="username" href="#">USER MANUAL</a>
+        <a href="achievements">PREVIOUS YEAR REPORT</a>
+        <a href="registration">REGISTRATION</a>
+        <a href="login">LOGIN</a>
+    </nav>
+
+    <!-- <div>
+        <img class="background-image" src="/img/726.jpg">
+    </div> -->
+
+    <div class="registration-container">
+        <form th:object="${person}" method="post">
+
+            <h2 id="heading-form">Register</h2>
+            <div th:if="${param.error}">
+                <p class="error-message">User Name already Exists...!</p>
+            </div>
+            <div class="label">
+                <label for="firstName" class="form-label name">First-Name</label>
+                <input type="text" id="firstName" th:field="*{firstName}" class="form-control" aria-describedby="firstNameBlock"  th:errorclass="*{firstName}" data-toggle="tooltip" title="Name can't be Blank" data-placement="top" onclick="clearErrorMessage('passwordError')">
+                <span class="error" th:errors="*{firstName}"></span>
+            </div>
+            <div class="label">
+                <label for="lastName" class="form-label name">Last-Name</label>
+                <input type="text" id="lastName" class="form-control" th:field="*{lastName}" aria-describedby="lastNameBlock" required data-toggle="tooltip" title="Name can't be blank" data-placement="top" onclick="clearErrorMessage('passwordError')">
+                <span class="error" th:errors="*{lastName}"></span>
+
+            </div>
+<!--            <div class="label">-->
+<!--                <label for="usn" class="form-label">USN</label>-->
+<!--                <input type="text" id="usn" th:field="*{usn}" class="form-control usn-in"-->
+<!--                       pattern="[0-9][a-zA-Z][a-zA-][1-2][0-9][CcAaEeMm][SsIiEe][VvEe][0-2][0-9][0-9]"-->
+<!--                       aria-describedby="branchBlock"  required  oninvalid="setCustomValidity('Invalid format. Please use the correct format of usn *BR[BRANCH]***.')"-->
+<!--                       oninput="setCustomValidity('')" >-->
+<!--                <span class="error" th:errors="*{usn}"></span>-->
+<!--            </div>-->
+            <div class="label">
+                <label for="usn" class="form-label">USN</label>
+                <input type="text" id="usn" th:field="*{usn}" class="form-control usn-in"
+                        required pattern="[0-9][a-zA-Z]{2}[0-9]{2}[CcAaEeMm][SsIiEe]([VvEeCc])?[0-9]{3}"
+                       aria-describedby="branchBlock"
+                       oninvalid="setCustomValidity('Invalid format. Please use the correct format of USN')"
+                       oninput="setCustomValidity('')">
+                <span class="error" th:errors="*{usn}"></span>
+            </div>
+            <!--            <div class="label">-->
+<!--                <label for="branch" class="form-label">Branch</label>-->
+<!--                <input type="text" id="branch" th:field="*{branch}" class="form-control branch-in"-->
+<!--                       aria-describedby="branchBlock" required pattern="[CcAaEeMm][SsIiEe][VvEe]" title="Use only abbreviation" onclick="clearErrorMessage('passwordError')">-->
+<!--                <span class="error" th:errors="*{branch}"></span>-->
+
+<!--            </div>-->
+            <div class="label">
+                <label for="branch" class="form-label">Branch</label>
+                <input type="text" id="branch" th:field="*{branch}" class="form-control branch-in"
+                       aria-describedby="branchBlock" required
+                       pattern="[CcAaEeMm][SsIiEe][VvEeCc]?"
+                       title="Use only abbreviation"
+                       oninvalid="setCustomValidity('Invalid format. Please use the correct abbreviation.')"
+                       oninput="setCustomValidity('')">
+                <span class="error" th:errors="*{branch}"></span>
+            </div>
+
+            <label class="form-label gender" >Gender</label>
+            <div class="form-check">
+                <div>
+                    <input type="radio" id="option1" name="type" value="Male" onclick="clearErrorMessage('passwordError')" >
+                    <label for="option1" class="form-label" th:checked="${person.type == 'Male'}">Male </label>
+                    <span class="error" th:errors="*{gender}"></span>
+
+                </div>
+            </div>
+            <div class="form-check ">
+                <div>
+                    <input type="radio" id="option2" name="type" value="Female">
+                    <label for="option2" class="form-label is-invalid" th:checked="${person.type == 'Female'}" onclick="clearErrorMessage('passwordError')">Female</label>
+                    <span class="error" th:errors="*{gender}"></span>
+
+                </div>
+            </div>
+            <div class="label">
+                <label for="dob" class="form-label dob">DOB</label>
+                <input type="date" id="dob"  class="form-control" aria-describedby="DobBlock" th:field="*{dob}" required onclick="clearErrorMessage('passwordError')">
+                <span class="error" th:errors="*{dob}"></span>
+            </div>
+            <!-- <div class="label">
+                <label for="username" class="form-label dob">PhNO</label>
+                <input type="number" id="username" class="form-control email-in"
+                    aria-describedby="passwordHelpBlock">
+            </div> -->
+            <div class="label">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" th:field="*{email}" class="form-control email-in"
+                       aria-describedby="passwordHelpBlock" required onclick="clearErrorMessage('passwordError')">
+                <span class="error" th:errors="*{email}"></span>
+            </div>
+
+            <div class="label">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" th:field="*{password}" class="form-control password-in"
+                       aria-describedby="passwordHelpBlock" required onclick="clearErrorMessage('passwordError')">
+                <span class="error" th:errors="*{password}">
+                </span>
+
+            </div>
+            <div class="label">
+                <label for="confirmPassword" class="form-label">Confirm-Password</label>
+                <input type="password" th:field="*{confirmPassword}" id="confirmPassword" class="form-control con-password-in"
+                       aria-describedby="passwordHelpBlock" required onclick="clearErrorMessage('passwordError')">
+                <span class="error" th:if="${!(person.password==person.confirmPassword)}" >
+                    please enter correct password
+                </span>
+            </div>
+            <button type="submit" class="submit">
+                <a>Submit</a>
+            </button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+
+</html>
+
+
+
+<!-- <div class="label">
+    <label for="username" class="form-label">User-Name</label>
+    <input type="text" id="username" class="form-control" aria-describedby="passwordHelpBlock" th:field="*{usn}">
+</div> -->

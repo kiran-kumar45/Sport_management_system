@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <link href="img/logo-2.png" rel="icon" type="image/x-icon">
+  <title>
+    welcome to bitm
+  </title>
+  <link href="style.css" rel="stylesheet">
+  <link href="index_controller.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+          integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+          integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+          crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-success ">
+<div class="containers">
+  <header>
+
+    <img class="logo" src="img/bitm-logo-new.png" width="100px">
+
+    <h1>
+      <p>Ballari institute of technology and management ballari</p>
+      <p id="sport-heading">sports management system</p>
+    </h1>
+    <div class="clear"></div>
+  </header>
+  <nav>
+    <a class="home" href="index">HOME</a>
+    <a class="username" href="#">USER MANUAL</a>
+    <a href="#">PREVIOUS YEAR REPORT</a>
+    <a href="registration">REGISTRATION</a>
+    <a href="login">LOGIN</a>
+  </nav>
+  <h2 class="head"></h2>
+  <section class="notifications">
+    <form method="post" class="division">
+      <h2 class="heading_notification">Previous Year Report</h2>
+      <table class="table">
+        <thead>
+        <tr> <!-- Checkbox column -->
+          <th>Year</th>
+          <th>Sports-Played</th>
+          <th>Performance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="notification : ${achievements}">
+          <td th:text="${notification.yearPlayed}">Hello</td>
+          <td th:text="${notification.type}">WELCOME TO BITM</td>
+          <td th:text="${notification.performance}">30/06/2020</td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </section>
+
+</body>
+
+</html>

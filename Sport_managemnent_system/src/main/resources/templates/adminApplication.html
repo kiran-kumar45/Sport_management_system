@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Registration</title>
+    <link href="new.css" rel="stylesheet">
+    <link href="appcontrol.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="containers">
+    <header>
+        <img class="logo" src="img/bitm-logo-new.png" width="100px">
+        <h1>
+            <p>Ballari institute of technology and management ballari</p>
+            <p id="sport-heading">sports management system</p>
+        </h1>
+        <div class="clear"></div>
+    </header>
+    <nav>
+        <a class="home" href="notification">Notification</a>
+        <a class="username" href="applicationcontroller">Application Controller</a>
+        <a href="applied">Applied Student</a>
+        <a href="report">Previous year Detail</a>
+        <a href="index">Logout</a>
+    </nav>
+    <form class="login-main" th:object="${application}" method="post">
+        <div class="centered-container">
+            <h2>Application</h2>
+            <form th:action="@{/sports/form}" method="post">
+                <div class="checkbox-container">
+                    <label class="Gender"><input type="checkbox" name="gender" value="M"> Male</label>
+                    <label class="Gender"><input type="checkbox" name="gender" value="F"> Female</label>
+                </div>
+                <div class="spacer"></div>
+                <div class="dropdown-container">
+                    <label for="sportsDropdown" class="Sports">Select a Sport:</label>
+                    <select id="sportsDropdown" name="selectedSport" th:field="*{type}">
+                        <option value="off">OFF</option>
+                        <option value="Cricket">Cricket</option>
+                        <option value="Football (Soccer)">Football (Soccer)</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Volleyball">Volleyball</option>
+                        <option value="Badminton">Badminton</option>
+                        <option value="Table Tennis">Table Tennis</option>
+                        <option value="Chess">Chess</option>
+                        <option value="Athletics (Track and Field)">Athletics (Track and Field)</option>
+                        <option value="Kabaddi">Kabaddi</option>
+                        <option value="Hockey">Hockey</option>
+                        <option value="Tennis">Tennis</option>
+                        <option value="Swimming">Swimming</option>
+                        <option value="Rugby">Rugby</option>
+                        <option value="Carrom">Carrom</option>
+                        <option value="Boxing">Boxing</option>
+                        <option value="Wrestling">Wrestling</option>
+                        <option value="Weightlifting">Weightlifting</option>
+                        <option value="Karate">Karate</option>
+                        <option value="Taekwondo">Taekwondo</option>
+                        <option value="Yoga">Yoga</option>
+                        <option value="Archery">Archery</option>
+                        <option value="Cycling">Cycling</option>
+                        <option value="Shooting">Shooting</option>
+                        <option value="Fencing">Fencing</option>
+
+                    </select>
+                </div>
+                <div class="spacer"></div>
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+</div>
+</body>
+
+</html>
